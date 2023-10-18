@@ -186,14 +186,13 @@ const styles = StyleSheet.create({
     color: 'red',
     fontSize: 60,
     alignItems: 'center',
-    justifyContent:'center'
+    justifyContent:'center',
 
   },
   tileO:{
     color: 'green',
     fontSize: 60,
     alignItems: 'center',
-    justifyContent:'center'
-
+    justifyContent:'center',
   }
 });
