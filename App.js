@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View, TouchableOpacity, Alert } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity, Alert, Button } from 'react-native';
 import { MaterialCommunityIcons as Icon} from 'react-native-vector-icons';
 
 
@@ -29,7 +29,8 @@ export default class App extends React.Component {
       [0,0,0],
       [0,0,0],
       [0,0,0]
-    ]
+    ],
+    currentPlayer: 1,
     });
   }
   // Return 1 if player 1 WIN, return -1 if Player 2 WIN, return 0 if no one has wone
@@ -64,6 +65,7 @@ export default class App extends React.Component {
     else if (sum == -3) {return -1}
 
     //the are no winners
+    return 0;
 
   }
 
@@ -87,8 +89,17 @@ export default class App extends React.Component {
     //check for winners
     var winner = this.getWinner();
     if (winner == 1){
-
+      Alert.alert("One player is Winner!!!")
+      this.initializeGame();
+      
+    } else if (winner == -1){
+      Alert.alert("Player is Two winner!!!")
+      this.initializeGame();
     }
+  }
+
+  onNewGamePress = () => {
+    this.initializeGame();
   }
 
   renderIcon = (row,col) => {
@@ -142,6 +153,10 @@ export default class App extends React.Component {
             {this.renderIcon(2,2)}
           </TouchableOpacity>
         </View>
+
+        <View style={{paddingTop:50}}/>
+
+        <Button title='New Game!' onPress={this.onNewGamePress} />
         
 
         <StatusBar style="auto" />
@@ -160,7 +175,7 @@ const styles = StyleSheet.create({
   },
   txt:{
     color: 'red',
-    fontSize: 100,
+    fontSize: 50,
   },
   tile:{
     borderWidth: 5,
