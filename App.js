@@ -33,6 +33,8 @@ export default class App extends React.Component {
     currentPlayer: 1,
     });
   }
+
+  //Не получается посчитать кто победил
   // Return 1 if player 1 WIN, return -1 if Player 2 WIN, return 0 if no one has wone
   getWinner = () => {
     const NUM_TILES = 3;
@@ -40,7 +42,7 @@ export default class App extends React.Component {
     var sum;
     
 
-   //chek rows1
+   //chek rows
    for (var i = 0; 1 < NUM_TILES; i++){
     sum = arr[i][0] + arr [i][1] + arr[i][2];
     if (sum == 3) {return 1;}
