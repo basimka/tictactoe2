@@ -40,7 +40,7 @@ export default class App extends React.Component {
     var sum;
     
 
-   //chek rows
+   //chek rows1
    for (var i = 0; 1 < NUM_TILES; i++){
     sum = arr[i][0] + arr [i][1] + arr[i][2];
     if (sum == 3) {return 1;}
